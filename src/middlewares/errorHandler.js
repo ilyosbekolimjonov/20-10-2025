@@ -12,6 +12,8 @@ export const errorHandler = (err, req, res, next) => {
 
     res.status(500).json({
         success: false,
-        message: "Serverda kutilmagan xatolik yuz berdi",
+        // message: "Serverda kutilmagan xatolik yuz berdi",
+        error: err.message, // bu yer qo‘shildi
+        // stack: process.env.NODE_ENV === "development" ? err.stack : undefined,
     })
 }

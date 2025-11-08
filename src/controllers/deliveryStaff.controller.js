@@ -1,5 +1,5 @@
 import Delivery_staff from '../models/deliveryStaff.model.js'
-import User from '../models/customers.model.js'
+import User from '../models/user.model.js'
 import { searchAndPaginate } from '../helpers/searchAndPaginate.js'
 
 export const DeliveryStaffController = {
