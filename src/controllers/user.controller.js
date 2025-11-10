@@ -37,44 +37,6 @@ export const UserController = {
         }
     },
 
-    // 🔹 Yangi foydalanuvchi qo'shish (faqat admin)
-    async create(req, res, next) {
-        try {
-            const { name, phone, email, password, role } = req.body
-
-            if (!name || !phone || !email || !password) {
-                return next(new ApiError(400, "Barcha maydonlar to'ldirilishi shart"))
-            }
-
-            const existing = await User.findOne({ email })
-            if (existing) {
-                return next(new ApiError(400, "Bu email allaqachon mavjud"))
-            }
-
-            const user = await User.create({
-                name,
-                phone,
-                email: email.toLowerCase(),
-                password,
-                role: role || "customer", // default bo'lmasa ham "customer" qilib saqlaymiz
-            })
-
-            res.status(201).json({
-                success: true,
-                message: "Foydalanuvchi muvaffaqiyatli qo'shildi",
-                data: {
-                    id: user._id,
-                    name: user.name,
-                    email: user.email,
-                    phone: user.phone,
-                    role: user.role,
-                },
-            })
-        } catch (err) {
-            next(err)
-        }
-    },
-
     // 🔹 Foydalanuvchini yangilash
     async update(req, res, next) {
         try {

@@ -40,15 +40,10 @@ export const refreshGuard = async (req, res, next) => {
 }
 
 export const roleGuard = (...role) => {
-    
     return (req, res, next) => {
         const userRoles = Array.isArray(req.user.role)
             ? req.user.role
             : [req.user.role]
-
-        console.log({ user: req.user })
-        console.log({ userRoles })
-        console.log({ role })
 
         const hasAccess = userRoles.some((r) => role.includes(r))
         if (!hasAccess) {
