@@ -54,14 +54,14 @@ export const DistrictController = {
         }
     },
 
-    //  District qo‘shish
+    //  District qo'shish
     async add(req, res, next) {
         try {
             const district = await District.create(req.body)
 
             res.status(201).json({
                 success: true,
-                message: 'District muvaffaqiyatli qo‘shildi',
+                message: "District muvaffaqiyatli qo'shildi",
                 data: district,
             })
         } catch (err) {
@@ -96,7 +96,7 @@ export const DistrictController = {
         }
     },
 
-    // Districtni o‘chirish
+    // Districtni o'chirish
     async delete(req, res, next) {
         try {
             const { id } = req.params

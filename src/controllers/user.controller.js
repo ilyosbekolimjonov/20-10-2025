@@ -41,12 +41,11 @@ export const UserController = {
     async update(req, res, next) {
         try {
             const { id } = req.params
-            const { name, phone, email, role } = req.body
 
             const updated = await User.findByIdAndUpdate(
                 id,
-                { name, phone, email, role },
-                { new: true }
+                { $set: req.body },
+                { new: true, runValidators: true }
             ).select("-password")
 
             if (!updated) {

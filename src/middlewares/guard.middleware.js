@@ -48,7 +48,7 @@ export const roleGuard = (...role) => {
         const hasAccess = userRoles.some((r) => role.includes(r))
         if (!hasAccess) {
             return next(
-                new Error('Sizning rolingiz ushbu yonalishga kirish huquqiga ega emas'),
+                new Error("Sizning rolingiz ushbu yo'nalishga kirish huquqiga ega emas"),
             )
         }
         next()

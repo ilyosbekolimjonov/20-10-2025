@@ -1,4 +1,4 @@
-import Address from "../models/adress.model.js"
+import Address from "../models/address.model.js"
 import { searchAndPaginate } from "../helpers/searchAndPaginate.js"
 
 export const AddressController = {
@@ -60,7 +60,7 @@ export const AddressController = {
         }
     },
 
-    // Address qo"shish
+    // Address qo'shish
     async add(req, res, next) {
         try {
             const address = await Address.create(req.body)
